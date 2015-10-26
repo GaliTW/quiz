@@ -1,6 +1,16 @@
-/* FIXME: Implement! */
+#include <stdlib.h>
+#include "q5.h"
 
-int main()
+ListNode *detectCycle(ListNode *head)
 {
-    return 0;
+    while (head != NULL) {
+        if (head->pNext == (ListNode *)detectCycle)
+            return head;
+
+        ListNode *temp = head;
+        head = head->pNext;
+        temp->pNext = (ListNode *)detectCycle;
+    }
+
+    return NULL;
 }
