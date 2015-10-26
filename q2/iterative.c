@@ -1,6 +1,14 @@
-/* FIXME: Implement! */
+#include <stdlib.h>
 
-int main()
+char smallest_character(char str[], char c)
 {
-    return 0;
+    if (str == NULL)
+        return 0;
+
+    for (char* w = str; *w != '\0'; ++w)
+        if (*w > c)
+            return *w;
+
+    return *str;
 }
+
